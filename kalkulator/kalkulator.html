@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Graph & Multigraph</title>
+    <link rel="stylesheet" href="kalkulator.css">
+    <link rel="stylesheet" href="../navbar.css">
+    <!-- Vis.js Library -->
+    <script type="text/javascript" src="https://unpkg.com/vis-network@9.1.2/dist/vis-network.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">Graph dan Multigraph</div>
+        <ul>
+            <a href="../index.html"><li>Materi</li></a>
+            <a href="../materi/materi.html"><li>Video Pembelajaran</li></a>
+            <a href="../quiz/quiz.html"><li>Quiz</li></a>
+            <a href="kalkulator.html"><li>Kalkulator</li></a>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container-graph">
+        <div class="input-section">
+            <h2>Input Graph dan Multigraph</h2>
+            <label for="edgesInput">Masukkan sisi dalam format simpul1-simpul2 (contoh: A-B):</label>
+            <textarea id="edgesInput" placeholder="Contoh input: A-B\nB-C\nC-A"></textarea>
+            <button onclick="generateGraph()">Buat Graph</button>
+        </div>
+
+        <div class="graph-section">
+            <div class="graph-container">
+                <h3>Graph Sederhana</h3>
+                <p>Canvas untuk menggambar graph sederhana:</p>
+                <div id="simpleGraph" class="graph-canvas"></div>
+            </div>
+            <div class="graph-container">
+                <h3>Multigraph</h3>
+                <p>Canvas untuk menggambar multigraph (sisi melengkung & loop):</p>
+                <div id="multiGraph" class="graph-canvas"></div>
+            </div>
+        </div>
+        <div class="analysis-section">
+            <h3>Analisis Graph</h3>
+            <p id="analysisGraph"></p>
+            <h3>Analisis Multigraph</h3>
+            <p id="analysisMultigraph"></p>
+        </div>
+        <div class="matrix-section">
+            <button onclick="generateAdjacencyMatrix()">Buat Matriks Adjacency</button>
+            <div id="simpleMatrixContainer">
+                <h3>Matriks Adjacency (Graph Sederhana)</h3>
+                <div id="simpleMatrix"></div>
+                <div id="simpleMatrixAnalysis"></div>
+            </div>
+            <div id="multiMatrixContainer">
+                <h3>Matriks Adjacency (Multigraph)</h3>
+                <div id="multiMatrix"></div>
+                <div id="multiMatrixAnalysis"></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2024 - Dibuat oleh Kelompok 6
+    </footer>
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

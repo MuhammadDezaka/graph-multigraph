@@ -1,0 +1,56 @@
+/* Styling Umum */
+body {
+  margin: 0;
+  font-family: "Montserrat", Arial, sans-serif;
+  background-color: #ffffff;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><pattern id="pattern" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="10" fill="rgba(0, 0, 0, 0.05)"/><circle cx="75" cy="75" r="10" fill="rgba(0, 0, 0, 0.05)"/></pattern><rect width="100%" height="100%" fill="url(%23pattern)"/></svg>');
+  color: #ffffff;
+  min-height: 100%;
+}
+
+/* Navbar */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  padding: 20px 20px;
+  height: 80px;
+  color: #ffffff;
+}
+nav .logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+nav ul li {
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: background-color 0.3s, color 0.3s;
+  border-radius: 5px;
+}
+nav ul li:hover {
+  background-color: #555;
+  color: #ffeb3b;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  background-color: #333;
+  padding: 15px;
+  margin-top: auto;
+  font-weight: bold;
+  color: #ffeb3b;
+}

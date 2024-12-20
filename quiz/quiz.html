@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kuis Graph dan Multigraph</title>
+    <link rel="stylesheet" href="../navbar.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        .quiz-container {
+            flex: 1;
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            color: #333;
+            margin-bottom: 236px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        #context-img {
+            width: 100%;
+            max-height: 300px;
+            object-fit: contain;
+            margin-bottom: 15px;
+        }
+        #question {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .options {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .options img {
+            width: 100%;
+            height: 100%;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: border-color 0.3s;
+        }
+
+        .options img:hover {
+            border-color: #ffeb3b;
+        }
+
+        #analysis {
+            display: none;
+            margin-top: 20px;
+            background-color: #ffffff;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        .correct {
+            color: green;
+        }
+
+        .incorrect {
+            color: red;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 15px;
+            font-size: 1rem;
+            cursor: pointer;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">Graph dan Multigraph</div>
+        <ul>
+            <a href="../index.html"><li>Materi</li></a>
+            <a href="../materi/materi.html"><li>Video Pembelajaran</li></a>
+            <a href="quiz.html"><li>Quiz</li></a>
+            <a href="../kalkulator/kalkulator.html"><li>Kalkulator</li></a>
+        </ul>
+    </nav>
+
+    <!-- Kuis Section -->
+    <div class="quiz-container">
+        <h2>Kuis </h2>
+        <img id="context-img" src="" alt="Gambar Konteks Soal" style="display: none;">
+        <div id="question"></div>
+        <div class="options" id="options"></div>
+        <div id="analysis"></div>
+        <button id="next" style="display: none;">Soal Selanjutnya</button>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2024 - Dibuat oleh Kelompok 6
+    </footer>
+
+    <!-- Script -->
+   <script>
+    const questions = [
+    {
+    "type": "image",
+    "question": "Gambar mana yang merupakan Graph Sederhana?",
+    "options": [
+        { 
+            "img": "../gambar/graf.png", 
+            "isCorrect": false, 
+            "explanation": "Graf ini tidak merupakan graf sederhana karena memiliki sisi ganda (sisi paralel) antara simpul tertentu. Sisi ganda tidak diperbolehkan dalam graf sederhana."
+        },
+        { 
+            "img": "../gambar/graf sederhana.png", 
+            "isCorrect": true, 
+            "explanation": "Graf ini adalah graf sederhana karena setiap pasangan simpul dihubungkan oleh tepat satu sisi, tidak ada sisi ganda, dan tidak ada loop (sisi yang menghubungkan simpul ke dirinya sendiri)."
+        },
+        { 
+            "img": "../gambar/graph_loop.png", 
+            "isCorrect": false, 
+            "explanation": "Graf ini tidak merupakan graf sederhana karena memiliki sisi ganda dan merupakan graf berarah, yang juga tidak memenuhi definisi graf sederhana."
+        },
+        { 
+            "img": "../gambar/graf_loop2.png", 
+            "isCorrect": false, 
+            "explanation": "Graf ini tidak merupakan graf sederhana karena memiliki sisi ganda dan loop (sisi yang menghubungkan simpul ke dirinya sendiri). Graf sederhana tidak boleh memiliki loop."
+        }
+    ]
+},
+    {
+        type: "text", // Soal berbentuk teks biasa
+        question: "Sebuah multigraf memiliki 4 simpul dan 5 sisi. Jika salah satu sisinya adalah loop, berapa jumlah sisi lainnya yang tidak loop?",
+        options: [
+            { text: "4", isCorrect: false, explanation: "Jika loop dihitung, maka jumlah sisa sisi tidak bisa 4" },
+            { text: "3", isCorrect: true, explanation: "2 terlalu sedikit dibandingkan total sisi yang diberikan." },
+            { text: "2", isCorrect: false, explanation: "Multigraf memiliki 5 sisi, dan 1 loop. Maka jumlah sisi lain adalah 5−1= 4 sisi" },
+            { text: "1", isCorrect: false, explanation: "1 tidak konsisten dengan informasi jumlah sisi lainnya" },
+            
+        ]
+    },
+    {
+        type: "text", // Soal berbentuk teks biasa
+        question: "Manakah yang merupakan ciri khas dari multigraf?",
+        options: [
+            { text: "Multigraf tidak memiliki simpul", isCorrect: false, explanation: "Multigraf bisa memiliki simpul, bahkan dalam jumlah besar." },
+            { text: "Multigraf tidak memiliki sirkuit.", isCorrect: false, explanation: "Multigraf bisa saja memiliki sirkuit tergantung pada penyusunan simpul dan sisi." },
+            { text: "Multigraf selalu memiliki sisi ganda.", isCorrect: true, explanation: "Multigraf adalah graf yang memungkinkan adanya sisi ganda (multiple edges)." },
+            { text: "Multigraf hanya memiliki sisi yang bersifat loop", isCorrect: false, explanation: "Multigraf bisa memiliki sisi biasa, tidak hanya loop." },
+            
+        ]
+    },
+    {
+        type: "text", // Soal berbentuk teks biasa
+        question: "Dua graf pada gambar di atas adalah graf G1 (kiri) dan graf G2 (kanan). Berdasarkan kedua graf tersebut, manakah pernyataan berikut yang benar?",
+        contextImg: "../gambar/soal3.png",
+        options: [
+            { text: "G1 adalah graf sederhana, sedangkan G2 adalah graf berarah.", isCorrect: false, explanation: "G1 memang graf sederhana (tidak memiliki loop atau sisi ganda), tetapi G2 bukan graf berarah melainkan graf tak berarah dengan loop dan sisi ganda." },
+            { text: "G1 adalah graf terhubung, sedangkan G2 adalah graf dengan loop.", isCorrect: true, explanation: "G1 adalah graf terhubung karena setiap simpul dapat dijangkau dari simpul lainnya. G2 memiliki loop di simpul A dan sisi ganda antara E dan F, yang membuatnya tidak sederhana." },
+            { text: "G1 memiliki 6 simpul dan 6 sisi, sedangkan G2 memiliki 7 sisi", isCorrect: false, explanation: "G1 memiliki 6 simpul dan 6 sisi, tetapi G2 memiliki total 8 sisi (loop dihitung sebagai 1 sisi, dan sisi ganda dihitung masing-masing)." },
+            { text: "G1 dan G2 adalah graf planar", isCorrect: false, explanation: "G1 dan G2 keduanya planar karena dapat digambar tanpa saling memotong sisi, tetapi pernyataan ini tidak benar terkait konteks soal yang menekankan sifat graf." },
+            
+        ]
+    },
+    {
+        type: "image", // Jenis soal: "image" atau "text"
+        question: 'Graf tak bearah dengan simpul { A ,B,C } memiliki himpunan sisi : <br> E = {(A,B),(B,C)} <br> Apakah matrix adjensi yang benar untuk graf ini?',
+        options: [
+            { img: "../gambar/matrix_salah2.png", isCorrect: false, explanation: "Matriks ini menunjukkan hubungan yang salah, karena sisi (A,B)(A, B)(A,B) tidak ada dalam representasi ini" },
+            { img: "../gambar/matrix_salah1.png", isCorrect: false, explanation: "Matriks ini menunjukkan sisi tambahan antara AAA dan CCC, yang tidak ada pada graf." },
+            { img: "../gambar/matrix_benar.png", isCorrect: true, explanation: "Matriks ini mencerminkan hubungan sisi yang benar antara simpul-simpul graf." },
+            { img: "../gambar/matrix_salah3.png", isCorrect: false, explanation: "Matriks ini menunjukkan bahwa semua simpul memiliki loop, yang tidak sesuai dengan graf." }
+        ]
+    }
+];
+
+let currentQuestionIndex = 0;
+let score = 0; // Menyimpan skor akhir
+let correctAnswers = 0; // Jumlah jawaban benar
+const questionDiv = document.getElementById("question");
+const contextImg = document.getElementById("context-img");
+const optionsDiv = document.getElementById("options");
+const analysisDiv = document.getElementById("analysis");
+const nextButton = document.getElementById("next");
+
+function loadQuestion() {
+    const currentQuestion = questions[currentQuestionIndex];
+    questionDiv.innerHTML = currentQuestion.question;
+    optionsDiv.innerHTML = "";
+    analysisDiv.innerHTML = "";
+    analysisDiv.style.display = "none";
+
+    // Tampilkan gambar konteks jika ada
+    if (currentQuestion.contextImg) {
+                contextImg.src = currentQuestion.contextImg;
+                contextImg.style.display = "block";
+            } else {
+                contextImg.style.display = "none";
+            }
+
+    currentQuestion.options.forEach((option, index) => {
+        let optionElement;
+
+        // Cek jenis soal (image/text)
+        if (currentQuestion.type === "image") {
+            optionElement = document.createElement("img");
+            optionElement.src = option.img;
+            optionElement.alt = `Option ${index + 1}`;
+        } else {
+            optionElement = document.createElement("button");
+            optionElement.textContent = option.text;
+            optionElement.style.padding = "10px";
+            optionElement.style.margin = "5px";
+        }
+
+        optionElement.style.cursor = "pointer";
+        optionElement.style.border = "2px solid #ccc";
+        optionElement.style.borderRadius = "5px";
+
+        // Ketika dipilih
+        optionElement.onclick = () => checkAnswer(option, optionElement);
+
+        optionsDiv.appendChild(optionElement);
+    });
+    nextButton.style.display = "none";
+}
+
+function checkAnswer(selectedOption, selectedElement) {
+    const currentQuestion = questions[currentQuestionIndex];
+    const allOptions = optionsDiv.children;
+
+    // Kunci jawaban agar tidak bisa dipilih lagi
+    for (let option of allOptions) {
+        option.style.pointerEvents = "none"; // Nonaktifkan klik
+    }
+
+    analysisDiv.style.display = "block";
+    analysisDiv.innerHTML = "<h3>Analisis Jawaban:</h3>";
+
+    currentQuestion.options.forEach((option, index) => {
+        let explanation = document.createElement("div");
+        explanation.style.display = "flex";
+        explanation.style.alignItems = "center";
+        explanation.style.marginBottom = "10px";
+
+        let icon = document.createElement("span");
+        icon.textContent = option.isCorrect ? "✔️" : "❌";
+        icon.style.marginRight = "10px";
+
+        let text = document.createElement("span");
+        text.innerHTML = option.explanation;
+
+        explanation.appendChild(icon);
+        explanation.appendChild(text);
+
+        // Tambahkan border pada gambar/text yang dipilih
+        allOptions[index].style.borderColor = option.isCorrect ? "green" : "red";
+
+        analysisDiv.appendChild(explanation);
+    });
+
+    if (selectedOption.isCorrect) {
+        score += 20; // Tambah skor jika benar
+        correctAnswers++;
+    }
+
+
+    nextButton.style.display = "inline-block";
+}
+
+nextButton.onclick = () => {
+    currentQuestionIndex++;
+    if (currentQuestionIndex < questions.length) {
+        loadQuestion();
+    } else {
+        displayFinalResult();
+    }
+};
+
+function displayFinalResult() {
+    questionDiv.textContent = "Kuis Selesai! Terima kasih sudah berpartisipasi.";
+    optionsDiv.innerHTML = "";
+    analysisDiv.innerHTML = `
+        <h2>Hasil Akhir:</h2>
+        <p>Total Jawaban Benar: ${correctAnswers} dari ${questions.length} soal</p>
+        <p>Skor Akhir: ${score}</p>
+    `;
+    nextButton.style.display = "none";
+}
+
+loadQuestion();
+
+   </script>
+</body>
+</html>

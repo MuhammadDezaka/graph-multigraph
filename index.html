@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graph dan Multigraph</title>
+    <link rel="stylesheet" href="navbar.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+
+a {
+                text-decoration: none;
+                color: inherit;
+            }
+            h1, h2, h3 {
+                margin: 10px 0;
+            }
+            p {
+                line-height: 1.8;
+            }
+
+        /* Section Materi */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            background-color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            color: #ffffff;
+        }
+        .container h2 {
+            text-align: center;
+            color: #ffeb3b;
+        }
+        .materi {
+            margin-top: 20px;
+        }
+        .materi h3 {
+            color: #ffeb3b;
+        }
+
+
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">Graph dan Multigraph</div>
+        <ul>
+            <a href="index.html"><li>Materi</li></a>
+            <a href="materi/materi.html"><li>Video Pembelajaran</li></a>
+            <a href="quiz/quiz.html"><li>Quiz</li></a>
+            <a href="kalkulator/kalkulator.html"><li>Kalkulator</li></a>
+        </ul>
+    </nav>
+
+    <!-- Section Materi -->
+    <div class="container">
+        <h2>Materi Graph dan Multigraph</h2>
+        <div class="materi">
+            <h3>1. Pengertian Graph</h3>
+            <p>Graph adalah struktur yang terdiri dari simpul (vertex) dan sisi (edge). Simpul adalah elemen dasar, sedangkan sisi menghubungkan dua simpul.</p>
+            <p>Graph dapat dibagi menjadi dua jenis utama:
+                <ul>
+                    <li><b>Graph Berarah:</b> Sisi memiliki arah tertentu.</li>
+                    <li><b>Graph Tak Berarah:</b> Sisi tidak memiliki arah.</li>
+                </ul>
+            </p>
+
+            <h3>2. Multigraph</h3>
+            <p>Multigraph adalah jenis graph yang dapat memiliki lebih dari satu sisi antara dua simpul yang sama. Multigraph sering digunakan untuk memodelkan jaringan yang memiliki koneksi ganda, seperti sistem transportasi.</p>
+            <ul>
+                <li><b>Graf Sederhana:</b> Tidak memiliki sisi ganda dan tidak memiliki loop.</li>
+                <li><b>Graf Multigraph:</b> Memungkinkan adanya sisi ganda antara dua simpul.</li>
+                <li><b>Loop:</b> Sisi yang menghubungkan simpul ke dirinya sendiri.</li>
+            </ul>
+        </div>
+        <div class="pdf-viewer">
+            <h2>Materi PPT</h2>
+            <object class="pdf" 
+            data="file/Tugas Kelompok_5 (2).pdf"
+            width="100%"
+            height="500">
+    </object>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2024 - Dibuat oleh Kelompok 6
+    </footer>
+</body>
+</html>

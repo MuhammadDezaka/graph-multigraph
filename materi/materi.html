@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Pembelajaran</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../navbar.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <div class="logo">Graph dan Multigraph</div>
+        <ul>
+            <a href="../index.html"><li>Materi</li></a>
+            <a href="materi.html"><li>Video Pembelajaran</li></a>
+            <a href="../quiz/quiz.html"><li>Quiz</li></a>
+            <a href="../kalkulator/kalkulator.html"><li>Kalkulator</li></a>
+        </ul>
+    </nav>
+
+    <main class="video-container">
+        <h1>Video Pembelajaran</h1>
+        <div class="cards">
+            <div class="card" onclick="openVideo('../video/graph.mp4', 'Graph', 'Graph.')">
+                <img  src="../gambar/graf sederhana.png"  alt="Thumbnail Video 1">
+                <div class="card-content">
+                    <h2>Graph</h2>
+                    <p>Hover untuk melihat ringkasan.</p>
+                </div>
+                <div class="hover-content">
+                    <p>Ringkasan: Video ini membahas dasar-dasar graph.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openVideo('../video/multigraph.mp4', 'Multigraph.', 'Multigraph.')">
+                <img src="../gambar/graph_loop.png" alt="Thumbnail Video 2">
+                <div class="card-content">
+                    <h2>Multigraph</h2>
+                    <p>Hover untuk melihat ringkasan.</p>
+                </div>
+                <div class="hover-content">
+                    <p>Ringkasan: Video ini membahas multigraph.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openVideo('../video/Adjency Matrix.mp4', 'Matrix Adjececy.', 'Matrix.')">
+                <img src="../gambar/Matrix.png" alt="Thumbnail Video 2">
+                <div class="card-content">
+                    <h2>Matrix Adjency</h2>
+                    <p>Hover untuk melihat ringkasan.</p>
+                </div>
+                <div class="hover-content">
+                    <p>Ringkasan: Video ini membahas Matrix Adjency.</p>
+                </div>
+            </div>
+
+            <!-- Tambahkan lebih banyak card di sini -->
+        </div>
+    </main>
+
+    <!-- Popup Modal -->
+    <div id="videoModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeVideo()">&times;</span>
+            <h2 id="videoTitle"></h2>
+            <video id="videoPlayer" controls>
+                <source src="" type="video/mp4">
+                Browser Anda tidak mendukung video tag.
+            </video>
+            <p id="videoDescription"></p>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2024 - Dibuat oleh Kelompok 6
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
