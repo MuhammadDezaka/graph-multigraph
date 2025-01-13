@@ -192,6 +192,18 @@
     }
 ];
 
+// Fungsi untuk mengacak array
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
+
+// Acak soal saat halaman dimuat
+let shuffledQuestions = shuffleArray([...questions]);
+
 let currentQuestionIndex = 0;
 let score = 0; // Menyimpan skor akhir
 let correctAnswers = 0; // Jumlah jawaban benar
@@ -202,7 +214,7 @@ const analysisDiv = document.getElementById("analysis");
 const nextButton = document.getElementById("next");
 
 function loadQuestion() {
-    const currentQuestion = questions[currentQuestionIndex];
+    const currentQuestion = shuffledQuestions[currentQuestionIndex];
     questionDiv.innerHTML = currentQuestion.question;
     optionsDiv.innerHTML = "";
     analysisDiv.innerHTML = "";
@@ -210,16 +222,18 @@ function loadQuestion() {
 
     // Tampilkan gambar konteks jika ada
     if (currentQuestion.contextImg) {
-                contextImg.src = currentQuestion.contextImg;
-                contextImg.style.display = "block";
-            } else {
-                contextImg.style.display = "none";
-            }
+        contextImg.src = currentQuestion.contextImg;
+        contextImg.style.display = "block";
+    } else {
+        contextImg.style.display = "none";
+    }
 
-    currentQuestion.options.forEach((option, index) => {
+    // Acak urutan opsi jawaban
+    let shuffledOptions = shuffleArray([...currentQuestion.options]);
+    
+    shuffledOptions.forEach((option, index) => {
         let optionElement;
 
-        // Cek jenis soal (image/text)
         if (currentQuestion.type === "image") {
             optionElement = document.createElement("img");
             optionElement.src = option.img;
@@ -234,8 +248,6 @@ function loadQuestion() {
         optionElement.style.cursor = "pointer";
         optionElement.style.border = "2px solid #ccc";
         optionElement.style.borderRadius = "5px";
-
-        // Ketika dipilih
         optionElement.onclick = () => checkAnswer(option, optionElement);
 
         optionsDiv.appendChild(optionElement);
@@ -306,7 +318,11 @@ function displayFinalResult() {
     nextButton.style.display = "none";
 }
 
-loadQuestion();
+// Inisialisasi quiz dengan soal yang diacak
+window.onload = function() {
+    shuffledQuestions = shuffleArray([...questions]);
+    loadQuestion();
+};
 
    </script>
 </body>

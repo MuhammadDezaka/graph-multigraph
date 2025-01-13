@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Materi Graph dan Multigraph</title>
+    <link rel="stylesheet" href="navbar.css">
+    <style>
+        .content-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #333;
+            border-radius: 10px;
+            color: #ffffff;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section h2 {
+            color: #ffeb3b;
+            margin-bottom: 20px;
+        }
+
+        .dropdown {
+            background-color: #444;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .dropdown-header {
+            padding: 15px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #555;
+            border-radius: 5px;
+        }
+
+        .dropdown-content {
+            display: none;
+            padding: 15px;
+        }
+
+        .dropdown.active .dropdown-content {
+            display: block;
+        }
+
+        .question {
+            margin-bottom: 20px;
+        }
+
+        .options label {
+            display: block;
+            padding: 10px;
+            margin: 5px 0;
+            background-color: #444;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .options label:hover {
+            background-color: #555;
+        }
+
+        .submit-btn {
+            background-color: #ffeb3b;
+            color: #333;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            background-color: #fdd835;
+        }
+
+        .feedback {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .correct {
+            background-color: #4caf50;
+            color: white;
+        }
+
+        .incorrect {
+            background-color: #f44336;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">Graph dan Multigraph</div>
+        <ul>
+            <a href="index.html"><li>Materi</li></a>
+            <a href="materi/materi.html"><li>Video Pembelajaran</li></a>
+            <a href="quiz/quiz.html"><li>Quiz</li></a>
+            <a href="kalkulator/kalkulator.html"><li>Kalkulator</li></a>
+        </ul>
+    </nav>
+
+    <div class="content-container">
+        <div class="section">
+            <h2>Materi Detail Graph</h2>
+            
+            <!-- Materi 1: Konsep Dasar -->
+            <div class="dropdown">
+                <div class="dropdown-header">
+                    <h3>1. Konsep Dasar Graph</h3>
+                    <span class="toggle">▼</span>
+                </div>
+                <div class="dropdown-content">
+                    <p>Graph adalah struktur data non-linear yang terdiri dari:</p>
+                    <ul>
+                        <li>Vertex (Simpul): Titik yang merepresentasikan objek</li>
+                        <li>Edge (Sisi): Garis yang menghubungkan antar vertex</li>
+                    </ul>
+                    <p>Contoh penerapan graph dalam kehidupan sehari-hari:</p>
+                    <ul>
+                        <li>Jaringan sosial media</li>
+                        <li>Peta dan navigasi</li>
+                        <li>Jaringan komputer</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Materi 2: Jenis Graph -->
+            <div class="dropdown">
+                <div class="dropdown-header">
+                    <h3>2. Jenis-jenis Graph</h3>
+                    <span class="toggle">▼</span>
+                </div>
+                <div class="dropdown-content">
+                    <h4>2.1 Berdasarkan Arah:</h4>
+                    <ul>
+                        <li><b>Graph Berarah (Directed Graph):</b> Sisi memiliki arah tertentu</li>
+                        <li><b>Graph Tak Berarah (Undirected Graph):</b> Sisi tidak memiliki arah</li>
+                    </ul>
+                    <h4>2.2 Berdasarkan Bobot:</h4>
+                    <ul>
+                        <li><b>Graph Berbobot:</b> Setiap sisi memiliki nilai/bobot</li>
+                        <li><b>Graph Tidak Berbobot:</b> Sisi tidak memiliki nilai khusus</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Materi 3: Representasi Graph -->
+            <div class="dropdown">
+                <div class="dropdown-header">
+                    <h3>3. Representasi Graph</h3>
+                    <span class="toggle">▼</span>
+                </div>
+                <div class="dropdown-content">
+                    <h4>3.1 Matriks Ketetanggaan (Adjacency Matrix):</h4>
+                    <p>Matriks berukuran n x n dimana n adalah jumlah vertex. Nilai 1 menunjukkan ada sisi, 0 tidak ada sisi.</p>
+                    <h4>3.2 Senarai Ketetanggaan (Adjacency List):</h4>
+                    <p>Daftar vertex yang bertetangga untuk setiap vertex dalam graph.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Latihan Soal -->
+        <div class="section">
+            <h2>Latihan Soal</h2>
+            
+            <!-- Soal 1 -->
+            <div class="dropdown">
+                <div class="dropdown-header">
+                    <h3>Soal 1: Konsep Dasar Graph</h3>
+                    <span class="toggle">▼</span>
+                </div>
+                <div class="dropdown-content">
+                    <div class="question">
+                        <p>Dalam sebuah graph G = (V,E), apa yang dimaksud dengan V?</p>
+                        <div class="options">
+                            <label>
+                                <input type="radio" name="q1" value="a">
+                                Himpunan Edge (Sisi)
+                            </label>
+                            <label>
+                                <input type="radio" name="q1" value="b" class="correct">
+                                Himpunan Vertex (Simpul)
+                            </label>
+                            <label>
+                                <input type="radio" name="q1" value="c">
+                                Himpunan Bobot
+                            </label>
+                        </div>
+                        <button class="submit-btn" onclick="checkAnswer('q1', 'b')">Submit</button>
+                        <div class="feedback" id="feedback-q1"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Soal 2 -->
+            <div class="dropdown">
+                <div class="dropdown-header">
+                    <h3>Soal 2: Jenis Graph</h3>
+                    <span class="toggle">▼</span>
+                </div>
+                <div class="dropdown-content">
+                    <div class="question">
+                        <p>Manakah yang merupakan ciri dari graph berarah (directed graph)?</p>
+                        <div class="options">
+                            <label>
+                                <input type="radio" name="q2" value="a">
+                                Semua sisi tidak memiliki arah
+                            </label>
+                            <label>
+                                <input type="radio" name="q2" value="b" class="correct">
+                                Setiap sisi memiliki arah yang ditunjukkan dengan panah
+                            </label>
+                            <label>
+                                <input type="radio" name="q2" value="c">
+                                Tidak memiliki vertex
+                            </label>
+                        </div>
+                        <button class="submit-btn" onclick="checkAnswer('q2', 'b')">Submit</button>
+                        <div class="feedback" id="feedback-q2"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Soal 3 -->
+            <div class="dropdown">
+                <div class="dropdown-header">
+                    <h3>Soal 3: Representasi Graph</h3>
+                    <span class="toggle">▼</span>
+                </div>
+                <div class="dropdown-content">
+                    <div class="question">
+                        <p>Dalam matriks ketetanggaan (adjacency matrix) untuk graph tak berarah, manakah pernyataan yang benar?</p>
+                        <div class="options">
+                            <label>
+                                <input type="radio" name="q3" value="a">
+                                Matriks tidak simetris
+                            </label>
+                            <label>
+                                <input type="radio" name="q3" value="b">
+                                Ukuran matriks tergantung jumlah edge
+                            </label>
+                            <label>
+                                <input type="radio" name="q3" value="c" class="correct">
+                                Matriks bersifat simetris terhadap diagonal utama
+                            </label>
+                        </div>
+                        <button class="submit-btn" onclick="checkAnswer('q3', 'c')">Submit</button>
+                        <div class="feedback" id="feedback-q3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2024 - Dibuat oleh Kelompok 6
+    </footer>
+
+    <script>
+        // Toggle dropdown
+        document.querySelectorAll('.dropdown-header').forEach(header => {
+            header.addEventListener('click', () => {
+                header.parentElement.classList.toggle('active');
+                header.querySelector('.toggle').textContent = 
+                    header.parentElement.classList.contains('active') ? '▼' : '▼';
+            });
+        });
+
+        // Check answer
+        function checkAnswer(questionId, correctAnswer) {
+            const selected = document.querySelector(`input[name="${questionId}"]:checked`);
+            const feedback = document.getElementById(`feedback-${questionId}`);
+            
+            if (!selected) {
+                alert('Silakan pilih jawaban terlebih dahulu!');
+                return;
+            }
+
+            feedback.style.display = 'block';
+
+            // Tampilkan semua penjelasan
+            const explanations = {
+                q1: {
+                    a: "Salah, V adalah himpunan vertex (simpul), bukan edge (sisi).",
+                    b: "Benar! V adalah himpunan vertex (simpul) dalam graph G = (V,E).",
+                    c: "Salah, V bukan himpunan bobot."
+                },
+                q2: {
+                    a: "Salah, graph berarah memiliki sisi yang memiliki arah.",
+                    b: "Benar! Graph berarah memiliki sisi yang memiliki arah yang ditunjukkan dengan panah.",
+                    c: "Salah, graph berarah tidak memiliki vertex."
+                },
+                q3: {
+                    a: "Salah, matriks ketetanggaan untuk graph tak berarah bersifat simetris terhadap diagonal utama.",
+                    b: "Salah, ukuran matriks tidak tergantung jumlah edge.",
+                    c: "Benar! Matriks ketetanggaan untuk graph tak berarah bersifat simetris terhadap diagonal utama."
+                }
+            };
+
+            // Tampilkan penjelasan untuk semua opsi
+            const options = document.querySelectorAll(`input[name="${questionId}"]`);
+            let feedbackHTML = '<div class="explanation-container">';
+            
+            options.forEach(option => {
+                const isCorrect = option.value === correctAnswer;
+                feedbackHTML += `
+                    <div class="explanation ${isCorrect ? 'correct' : 'incorrect'}">
+                        <span class="icon">${isCorrect ? '✓' : '✗'}</span>
+                        <p>${explanations[questionId][option.value]}</p>
+                    </div>
+                `;
+            });
+            
+            feedbackHTML += '</div>';
+            feedback.innerHTML = feedbackHTML;
+        }
+    </script>
+</body>
+</html> 

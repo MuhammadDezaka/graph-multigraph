@@ -37,6 +37,20 @@
             color: #ffeb3b;
         }
 
+        .detail-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #ffeb3b;
+            color: #333;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 10px 0;
+            transition: background-color 0.3s;
+        }
+
+        .detail-btn:hover {
+            background-color: #fdd835;
+        }
 
     </style>
 </head>
@@ -58,6 +72,7 @@
         <div class="materi">
             <h3>1. Pengertian Graph</h3>
             <p>Graph adalah struktur yang terdiri dari simpul (vertex) dan sisi (edge). Simpul adalah elemen dasar, sedangkan sisi menghubungkan dua simpul.</p>
+            <a href="detail-materi.html" class="detail-btn">Pelajari Lebih Lanjut</a>
             <p>Graph dapat dibagi menjadi dua jenis utama:
                 <ul>
                     <li><b>Graph Berarah:</b> Sisi memiliki arah tertentu.</li>
@@ -67,6 +82,7 @@
 
             <h3>2. Multigraph</h3>
             <p>Multigraph adalah jenis graph yang dapat memiliki lebih dari satu sisi antara dua simpul yang sama. Multigraph sering digunakan untuk memodelkan jaringan yang memiliki koneksi ganda, seperti sistem transportasi.</p>
+            <a href="detail-multigraph.html" class="detail-btn">Pelajari Lebih Lanjut</a>
             <ul>
                 <li><b>Graf Sederhana:</b> Tidak memiliki sisi ganda dan tidak memiliki loop.</li>
                 <li><b>Graf Multigraph:</b> Memungkinkan adanya sisi ganda antara dua simpul.</li>
@@ -79,7 +95,7 @@
             data="file/Tugas Kelompok_5 (2).pdf"
             width="100%"
             height="500">
-    </object>
+             </object>
         </div>
     </div>
 

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Materi Multigraph</title>
+    <link rel="stylesheet" href="navbar.css">
+    <style>
+        .content-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #333;
+            border-radius: 10px;
+            color: #ffffff;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section h2 {
+            color: #ffeb3b;
+            margin-bottom: 20px;
+        }
+
+        .dropdown {
+            background-color: #444;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .dropdown-header {
+            padding: 15px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #555;
+            border-radius: 5px;
+        }
+
+        .dropdown-content {
+            display: none;
+            padding: 15px;
+        }
+
+        .dropdown.active .dropdown-content {
+            display: block;
+        }
+
+        .question {
+            margin-bottom: 20px;
+        }
+
+        .options label {
+            display: block;
+            padding: 10px;
+            margin: 5px 0;
+            background-color: #444;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .options label:hover {
+            background-color: #555;
+        }
+
+        .submit-btn {
+            background-color: #ffeb3b;
+            color: #333;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            background-color: #fdd835;
+        }
+
+        .feedback {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .correct {
+            background-color: #4caf50;
+            color: white;
+        }
+
+        .incorrect {
+            background-color: #f44336;
+            color: white;
+        }
+
+        .image-container {
+            margin: 15px 0;
+            text-align: center;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">Graph dan Multigraph</div>
+        <ul>
+            <a href="index.html"><li>Materi</li></a>
+            <a href="materi/materi.html"><li>Video Pembelajaran</li></a>
+            <a href="quiz/quiz.html"><li>Quiz</li></a>
+            <a href="kalkulator/kalkulator.html"><li>Kalkulator</li></a>
+        </ul>
+    </nav>
+
+    <div class="content-container">
+        <div class="section">
+            <h2>Materi Detail Multigraph</h2>
+            
+            <!-- Materi 1: Pengertian Multigraph -->
+            <div class="dropdown">
+                <div class="dropdown-header">
+                    <h3>1. Pengertian Multigraph</h3>
+                    <span class="toggle">▼</span>
+                </div>
+                <div class="dropdown-content">
+                    <p>Multigraph adalah graph yang memungkinkan adanya:</p>
+                    <ul>
+                        <li>Multiple edges (sisi ganda) antara dua vertex yang sama</li>
+                        <li>Self-loops (sisi yang menghubungkan vertex ke dirinya sendiri)</li>
+                    </ul>
+                    <div class="image-container">
+                        <img src="gambar/graf_loop2.png" alt="Contoh Multigraph">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Materi 2: Jenis Multigraph -->
+            <div class="dropdown">
+                <div class="dropdown-header">
+                    <h3>2. Jenis-jenis Multigraph</h3>
+                    <span class="toggle">▼</span>
+                </div>
+                <div class="dropdown-content">
+                    <h4>2.1 Berdasarkan Sisi:</h4>
+                    <ul>
+                        <li><b>Multigraph Sederhana:</b> Hanya memiliki multiple edges</li>
+                        <li><b>Pseudograph:</b> Memiliki multiple edges dan self-loops</li>
+                    </ul>
+                    <h4>2.2 Berdasarkan Arah:</h4>
+                    <ul>
+                        <li><b>Directed Multigraph:</b> Sisi memiliki arah</li>
+                        <li><b>Undirected Multigraph:</b> Sisi tidak memiliki arah</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Materi 3: Aplikasi Multigraph -->
+            <div class="dropdown">
+                <div class="dropdown-header">
+                    <h3>3. Aplikasi Multigraph</h3>
+                    <span class="toggle">▼</span>
+                </div>
+                <div class="dropdown-content">
+                    <p>Multigraph sering digunakan dalam berbagai aplikasi:</p>
+                    <ul>
+                        <li><b>Sistem Transportasi:</b> Rute alternatif antara dua lokasi</li>
+                        <li><b>Jaringan Komunikasi:</b> Multiple koneksi antara dua perangkat</li>
+                        <li><b>Sistem Distribusi:</b> Berbagai jalur pengiriman antara lokasi</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Latihan Soal -->
+        <div class="section">
+            <h2>Latihan Soal</h2>
+            
+            <!-- Soal 1 -->
+            <div class="dropdown">
+                <div class="dropdown-header">
+                    <h3>Soal 1: Konsep Multigraph</h3>
+                    <span class="toggle">▼</span>
+                </div>
+                <div class="dropdown-content">
+                    <div class="question">
+                        <p>Apa yang membedakan multigraph dari graph sederhana?</p>
+                        <div class="options">
+                            <label>
+                                <input type="radio" name="q1" value="a">
+                                Tidak memiliki vertex
+                            </label>
+                            <label>
+                                <input type="radio" name="q1" value="b" class="correct">
+                                Memungkinkan adanya multiple edges
+                            </label>
+                            <label>
+                                <input type="radio" name="q1" value="c">
+                                Tidak memiliki edges
+                            </label>
+                        </div>
+                        <button class="submit-btn" onclick="checkAnswer('q1', 'b')">Submit</button>
+                        <div class="feedback" id="feedback-q1"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Soal 2 -->
+            <div class="dropdown">
+                <div class="dropdown-header">
+                    <h3>Soal 2: Aplikasi Multigraph</h3>
+                    <span class="toggle">▼</span>
+                </div>
+                <div class="dropdown-content">
+                    <div class="question">
+                        <p>Manakah yang merupakan contoh penerapan multigraph dalam kehidupan sehari-hari?</p>
+                        <div class="options">
+                            <label>
+                                <input type="radio" name="q2" value="a">
+                                Pohon keluarga
+                            </label>
+                            <label>
+                                <input type="radio" name="q2" value="b">
+                                Diagram alir program
+                            </label>
+                            <label>
+                                <input type="radio" name="q2" value="c" class="correct">
+                                Rute transportasi umum
+                            </label>
+                        </div>
+                        <button class="submit-btn" onclick="checkAnswer('q2', 'c')">Submit</button>
+                        <div class="feedback" id="feedback-q2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2024 - Dibuat oleh Kelompok 6
+    </footer>
+
+    <script>
+        // Toggle dropdown
+        document.querySelectorAll('.dropdown-header').forEach(header => {
+            header.addEventListener('click', () => {
+                header.parentElement.classList.toggle('active');
+                header.querySelector('.toggle').textContent = 
+                    header.parentElement.classList.contains('active') ? '▼' : '▼';
+            });
+        });
+
+        // Check answer
+        function checkAnswer(questionId, correctAnswer) {
+            const selected = document.querySelector(`input[name="${questionId}"]:checked`);
+            const feedback = document.getElementById(`feedback-${questionId}`);
+            
+            if (!selected) {
+                alert('Silakan pilih jawaban terlebih dahulu!');
+                return;
+            }
+
+            feedback.style.display = 'block';
+
+            const explanations = {
+                q1: {
+                    a: "Salah, multigraph tetap memiliki vertex seperti graph biasa.",
+                    b: "Benar! Multigraph memungkinkan adanya multiple edges (sisi ganda) antara dua vertex.",
+                    c: "Salah, multigraph memiliki edges, bahkan bisa memiliki multiple edges."
+                },
+                q2: {
+                    a: "Salah, pohon keluarga biasanya menggunakan graph sederhana.",
+                    b: "Salah, diagram alir program umumnya menggunakan directed graph sederhana.",
+                    c: "Benar! Rute transportasi umum sering dimodelkan dengan multigraph karena bisa ada beberapa rute berbeda antara dua lokasi."
+                }
+            };
+
+            const options = document.querySelectorAll(`input[name="${questionId}"]`);
+            let feedbackHTML = '<div class="explanation-container">';
+            
+            options.forEach(option => {
+                const isCorrect = option.value === correctAnswer;
+                feedbackHTML += `
+                    <div class="explanation ${isCorrect ? 'correct' : 'incorrect'}">
+                        <span class="icon">${isCorrect ? '✓' : '✗'}</span>
+                        <p>${explanations[questionId][option.value]}</p>
+                    </div>
+                `;
+            });
+            
+            feedbackHTML += '</div>';
+            feedback.innerHTML = feedbackHTML;
+        }
+    </script>
+</body>
+</html> 
